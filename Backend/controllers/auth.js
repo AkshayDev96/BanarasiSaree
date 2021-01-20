@@ -1,8 +1,9 @@
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
-require('dotenv').config()
 const expressJwt = require('express-jwt')
 const {errorHandler} = require('../helpers/dbErrorHandler')
+
+require('dotenv').config()
 
 exports.signup = (req,res)=>{
     User.findOne({email:req.body.email}).exec((err,user)=>{
